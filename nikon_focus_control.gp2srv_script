@@ -1,0 +1,110 @@
+[
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/viewfinder",
+    "expression": "1",
+    "condition": "___loopCount\u003d\u003d-1"
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "1000",
+    "condition": "___loopCount\u003d\u003d-1"
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/capturesettings/focusmode2",
+    "expression": "\"MF (selection)\"",
+    "condition": ""
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "100",
+    "condition": ""
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/capturesettings/liveviewaffocus",
+    "expression": "\"Single-servo AF\"",
+    "condition": ""
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "100",
+    "condition": ""
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/manualfocusdrive",
+    "expression": "-100",
+    "condition": "___loopCount\u003d\u003d-1"
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "2000",
+    "condition": "___loopCount\u003d\u003d-1"
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/manualfocusdrive",
+    "expression": "-1000",
+    "condition": "___loopCount\u003d\u003d-1"
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "2000",
+    "condition": "___loopCount\u003d\u003d-1"
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/manualfocusdrive",
+    "expression": "-1000",
+    "condition": "___loopCount\u003d\u003d-1"
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "2000",
+    "condition": "___loopCount\u003d\u003d-1"
+  },
+  {
+    "type": "CAPTURE",
+    "key": "",
+    "expression": "1000",
+    "condition": ""
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "500",
+    "condition": ""
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/manualfocusdrive",
+    "expression": "-20",
+    "condition": "___loopCount\u003e10"
+  },
+  {
+    "type": "CAMEVENT_WAIT",
+    "key": "",
+    "expression": "500",
+    "condition": ""
+  },
+  {
+    "type": "VAR_SET",
+    "key": "waitTime",
+    "expression": "8000-(__currentTimeMillis-__loopStartTime)",
+    "condition": ""
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "waitTime",
+    "condition": ""
+  }
+]

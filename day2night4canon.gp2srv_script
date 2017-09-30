@@ -1,0 +1,116 @@
+[
+  {
+    "type": "EXEC_SCRIPT",
+    "key": "",
+    "expression": "initcount\u003d10; lightsinit\u003d__helper.createArray(initcount)",
+    "condition": "___loopCount\u003d\u003d0"
+  },
+  {
+    "type": "EXEC_SCRIPT",
+    "key": "",
+    "expression": "lights\u003d__helper.createArray(5); cooldown\u003d0",
+    "condition": "___loopCount\u003d\u003d0"
+  },
+  {
+    "type": "VAR_SET",
+    "key": "exposure",
+    "expression": "20",
+    "condition": "___loopCount\u003d\u003d0"
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/capturesettings/shutterspeed",
+    "expression": "__camprop.choices[exposure]",
+    "condition": ""
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "100",
+    "condition": ""
+  },
+  {
+    "type": "CAPTURE",
+    "key": "",
+    "expression": "1000",
+    "condition": ""
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "300",
+    "condition": ""
+  },
+  {
+    "type": "VAR_SET",
+    "key": "light",
+    "expression": "__lightmeter.getForThumb(__capturedFile)",
+    "condition": ""
+  },
+  {
+    "type": "EXEC_SCRIPT",
+    "key": "skip",
+    "expression": "lightsinit[___loopCount]\u003dlight",
+    "condition": "___loopCount \u003c initcount"
+  },
+  {
+    "type": "EXEC_SCRIPT",
+    "key": "skip",
+    "expression": "lightinit\u003d0; for(il : lightsinit) { lightinit+\u003dil }; lightinit\u003dlightinit/initcount",
+    "condition": "___loopCount\u003d\u003dinitcount"
+  },
+  {
+    "type": "EXEC_SCRIPT",
+    "key": "skip",
+    "expression": "x\u003d0; while(x\u003clights.size()) { lights[x]\u003d lightsinit[initcount-x-1]; x\u003dx+1 }; x \u003d null; lightsinit\u003dnull",
+    "condition": "___loopCount\u003d\u003dinitcount"
+  },
+  {
+    "type": "EXEC_SCRIPT",
+    "key": "",
+    "expression": "lights[___loopCount % lights.size()]\u003dlight",
+    "condition": "___loopCount\u003einitcount"
+  },
+  {
+    "type": "EXEC_SCRIPT",
+    "key": "skip",
+    "expression": "lightavg\u003d0; for(il : lights) { lightavg \u003d lightavg + il }; lightavg\u003dlightavg/5",
+    "condition": "___loopCount\u003e\u003dinitcount"
+  },
+  {
+    "type": "VAR_SET",
+    "key": "lightingDiff",
+    "expression": "(lightinit? lightinit:0)-(lightavg? lightavg:0)",
+    "condition": ""
+  },
+  {
+    "type": "EXEC_SCRIPT",
+    "key": "exposure",
+    "expression": "exposure\u003dexposure+1; cooldown\u003d6",
+    "condition": "cooldown\u003c1 \u0026\u0026 lightingDiff \u003e0.1 \u0026\u0026 exposure\u003c __camprop.choices.size()-1"
+  },
+  {
+    "type": "VAR_SET",
+    "key": "cooldown",
+    "expression": "cooldown-1",
+    "condition": "cooldown\u003e0"
+  },
+  {
+    "type": "VAR_SET",
+    "key": "currentShutterSpeed",
+    "expression": "__camprop.choices[exposure]",
+    "condition": ""
+  },
+  {
+    "type": "VAR_SET",
+    "key": "throttleWait",
+    "expression": "2000-(__currentTimeMillis-__loopStartTime)",
+    "condition": ""
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "throttleWait",
+    "condition": ""
+  }
+]

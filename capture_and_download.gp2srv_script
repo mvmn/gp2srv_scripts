@@ -1,0 +1,50 @@
+[
+  {
+    "type": "VAR_SET",
+    "key": "loopTimes",
+    "expression": "__helper.createList()",
+    "condition": "___loopCount\u003d\u003d0"
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/eosremoterelease",
+    "expression": "\u0027Press Full\u0027",
+    "condition": ""
+  },
+  {
+    "type": "CAPTURE",
+    "key": "",
+    "expression": "1000",
+    "condition": ""
+  },
+  {
+    "type": "DOWNLOAD_TO_PC",
+    "key": "",
+    "expression": "__capturedFile",
+    "condition": ""
+  },
+  {
+    "type": "DELETE",
+    "key": "",
+    "expression": "__capturedFile",
+    "condition": ""
+  },
+  {
+    "type": "VAR_SET",
+    "key": "loopTime",
+    "expression": "__currentTimeMillis-__loopStartTime",
+    "condition": ""
+  },
+  {
+    "type": "EXEC_SCRIPT",
+    "key": "",
+    "expression": "loopTimes.add(loopTime)",
+    "condition": ""
+  },
+  {
+    "type": "EXEC_SCRIPT",
+    "key": "loopTimeAverage",
+    "expression": "loopTimeAvg \u003d 0; for(loopt : loopTimes) { loopTimeAvg +\u003d loopt }; loopTimeAvg \u003d loopTimeAvg/loopTimes.size()",
+    "condition": ""
+  }
+]

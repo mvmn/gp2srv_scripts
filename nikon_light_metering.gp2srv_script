@@ -1,0 +1,20 @@
+[
+  {
+    "type": "CAPTURE",
+    "key": "",
+    "expression": "1000",
+    "condition": ""
+  },
+  {
+    "type": "VAR_SET",
+    "key": "light",
+    "expression": "__lightmeter.getForThumb(__capturedFile)",
+    "condition": ""
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "500",
+    "condition": ""
+  }
+]

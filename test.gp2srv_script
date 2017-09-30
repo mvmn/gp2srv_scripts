@@ -1,0 +1,44 @@
+[
+  {
+    "type": "VAR_SET",
+    "key": "testVar",
+    "expression": "testVar? (1 + testVar) : 1",
+    "condition": ""
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "1000",
+    "condition": ""
+  },
+  {
+    "type": "CAPTURE",
+    "key": "",
+    "expression": "1000",
+    "condition": ""
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "1000",
+    "condition": ""
+  },
+  {
+    "type": "VAR_SET",
+    "key": "light",
+    "expression": "__lightmeter.getForCameraFile(__capturedFile)",
+    "condition": ""
+  },
+  {
+    "type": "VAR_SET",
+    "key": "prevEval",
+    "expression": "___evaldExpression? ___evaldExpression : null",
+    "condition": ""
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "1000",
+    "condition": ""
+  }
+]
