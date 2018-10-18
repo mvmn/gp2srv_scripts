@@ -1,0 +1,98 @@
+[
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/manualfocusdrive",
+    "expression": "\u0027Near 3\u0027",
+    "condition": "___loopCount\u003d\u003d0"
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "2000",
+    "condition": "___loopCount\u003d\u003d0"
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/manualfocusdrive",
+    "expression": "\u0027Near 3\u0027",
+    "condition": "___loopCount\u003d\u003d0"
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "2000",
+    "condition": "___loopCount\u003d\u003d0"
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/manualfocusdrive",
+    "expression": "\u0027Near 3\u0027",
+    "condition": "___loopCount\u003d\u003d0"
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "2000",
+    "condition": "___loopCount\u003d\u003d0"
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/eosremoterelease",
+    "expression": "\u0027Press Full\u0027",
+    "condition": "___loopCount\u003e0"
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "200",
+    "condition": "___loopCount\u003e0"
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/eosremoterelease",
+    "expression": "\u0027Release Full\u0027",
+    "condition": "___loopCount\u003e0"
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "500",
+    "condition": "___loopCount\u003e0"
+  },
+  {
+    "type": "CAMPROP_SET",
+    "key": "/main/actions/manualfocusdrive",
+    "expression": "\u0027Far 2\u0027",
+    "condition": "___loopCount \u003e 5 \u0026\u0026 ___loopCount % 3\u003d\u003d0"
+  },
+  {
+    "type": "DELAY",
+    "key": "/main/actions/manualfocusdrive",
+    "expression": "1000",
+    "condition": "___loopCount \u003e 5 \u0026\u0026 ___loopCount%3\u003d\u003d0"
+  },
+  {
+    "type": "VAR_SET",
+    "key": "waitTime",
+    "expression": "2500-(__currentTimeMillis-__loopStartTime)",
+    "condition": "___loopCount\u003e0"
+  },
+  {
+    "type": "DELAY",
+    "key": "",
+    "expression": "waitTime",
+    "condition": "___loopCount\u003e0"
+  },
+  {
+    "type": "VAR_SET",
+    "key": "minWaitTime",
+    "expression": "2500",
+    "condition": "___loopCount \u003d\u003d 0"
+  },
+  {
+    "type": "VAR_SET",
+    "key": "minWaitTime",
+    "expression": "waitTime",
+    "condition": "___loopCount \u003e 0 \u0026\u0026 waitTime \u003c minWaitTime"
+  }
+]
